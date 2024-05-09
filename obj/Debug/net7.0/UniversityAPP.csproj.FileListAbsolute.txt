@@ -84,6 +84,3 @@ D:\.NetCore\UniversityAPP\UniversityAPP\obj\Debug\net7.0\refint\UniversityAPP.dl
 D:\.NetCore\UniversityAPP\UniversityAPP\obj\Debug\net7.0\UniversityAPP.pdb
 D:\.NetCore\UniversityAPP\UniversityAPP\obj\Debug\net7.0\UniversityAPP.genruntimeconfig.cache
 D:\.NetCore\UniversityAPP\UniversityAPP\obj\Debug\net7.0\ref\UniversityAPP.dll
-D:\.NetCore\UniversityAPP\UniversityAPP\bin\Debug\net7.0\NLog.dll
-D:\.NetCore\UniversityAPP\UniversityAPP\bin\Debug\net7.0\NLog.Extensions.Logging.dll
-D:\.NetCore\UniversityAPP\UniversityAPP\bin\Debug\net7.0\Nlog.Config

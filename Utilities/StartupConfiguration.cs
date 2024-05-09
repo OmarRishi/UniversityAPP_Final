@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using NLog.Extensions.Logging;
 using System.Text;
 using UniversityAPP.Dto;
 using UniversityAPP.Mapping;
@@ -44,14 +43,6 @@ namespace UniversityAPP.Utilities
             IMapper mapper = MyMapper.InitializeAutoMapper();
 
             Service.AddSingleton(mapper);
-
-            Service.AddLogging(loggingBuilder =>
-            {
-                loggingBuilder.ClearProviders();
-                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                loggingBuilder.AddNLog();
-            });
-
         }
         public static void AddAuthentication(this IServiceCollection Service, JwtData jwtData)
         {
