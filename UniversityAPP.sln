@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "..\Reposi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices", "..\DomainServices\DomainServices.csproj", "{CA7A1DF9-982B-435C-854C-3DFB7A050998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "..\Shared\Shared.csproj", "{9A6CEE2E-0C9E-4A2B-B613-71687CA0E798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "..\Shared\Shared.csproj", "{9A6CEE2E-0C9E-4A2B-B613-71687CA0E798}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
