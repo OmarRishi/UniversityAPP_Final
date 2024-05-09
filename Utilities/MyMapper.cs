@@ -4,7 +4,7 @@ using UniversityAPP.Dto;
 
 namespace UniversityAPP.Mapping
 {
-    public static class MyMapper//<TSource, TDestination>
+    public static class MyMapper
     {
         public static IMapper InitializeAutoMapper()
         {
@@ -12,8 +12,12 @@ namespace UniversityAPP.Mapping
             {
                 cfg.CreateMap<Student, StudentDto>();
                 cfg.CreateMap<StudentDto, Student>();
+
+                cfg.CreateMap<StudentInput, Student>()
+                 .ForMember(dest => dest.Id, opt => opt.Ignore())
+                 .ForMember(dest => dest.DeleteTime, opt => opt.Ignore())
+                 .ForMember(dest => dest.IsDeleted, opt => opt.Ignore());
             });
-            //var mapper = new Mapper(config);
             var mapper = config.CreateMapper();
             return mapper;
         }

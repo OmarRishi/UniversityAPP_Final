@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "rX63Jz4k/9X0Lw/8NDDfenAJ9fcDxRmsejlUFT3d/go=",
+  "Source": "UniversityAPP",
+  "BasePath": "_content/UniversityAPP",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "UniversityAPP\\wwwroot",
+      "Source": "UniversityAPP",
+      "ContentRoot": "D:\\.NetCore\\UniversityAPP\\UniversityAPP\\wwwroot\\",
+      "BasePath": "_content/UniversityAPP",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

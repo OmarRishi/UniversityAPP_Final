@@ -5,21 +5,27 @@ using DomainServices.Manager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UniversityAPP.Dto;
+using UniversityAPP.Mapping;
 using UniversityAPP.Utilities;
 
 namespace UniversityAPP.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize(Roles = "User,Admin")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentRepository _repository;
         private readonly IStudentManager _studentManager;
-        private readonly IMapper mapper = MyMapper.InitializeAutoMapper();
+        private readonly IMapper _mapper;
 
-        public StudentController(IStudentRepository repository, IStudentManager studentManager)
+        public StudentController(IStudentRepository repository,
+                                 IStudentManager studentManager,
+                                 IMapper mapper)
         {
             _repository = repository;
             _studentManager = studentManager;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -27,9 +33,7 @@ namespace UniversityAPP.Controllers
         {
             var items = await _repository.GetAllStudents(studentsFilter.Name, studentsFilter.Address, studentsFilter.Skip, studentsFilter.PageSize);
 
-
-            var EntityDTO = mapper.Map<List<StudentDto>>(items);
-
+            var EntityDTO = _mapper.Map<List<StudentDto>>(items);
 
             return new PaginationResult<StudentDto>
             {
@@ -39,13 +43,13 @@ namespace UniversityAPP.Controllers
         }
 
         [HttpGet("GetByID")]
-        public async Task<StudentDto> GetByID(int id)
+        public async Task<StudentDto> GetByID(int ID)
         {
-            var res = await _repository.GetByIDAsync(id);
+            var res = await _repository.GetByIDAsync(ID);
             if (res == null)
                 throw new InvalidException("ID Not Found");
 
-            return mapper.Map<StudentDto>(res);
+            return _mapper.Map<StudentDto>(res);
         }
 
         [HttpGet("GetByName")]
@@ -55,30 +59,43 @@ namespace UniversityAPP.Controllers
             if (res == null)
                 throw new InvalidException("Name Not Found");
 
-            return mapper.Map<StudentDto>(res);
+            return _mapper.Map<StudentDto>(res);
         }
 
         [HttpPost]
-        public IActionResult AddStudent(StudentDto student)
+        public async Task Add(StudentInput student)
         {
-            if (ModelState.IsValid)
-            {
-                if (student is null)
-                    return BadRequest("No Data");
+            if (student is null)
+                throw new InvalidException("No Data");
 
-                var mapper = MyMapper.InitializeAutoMapper();
-                var std = mapper.Map<Student>(student);
+            var std = _mapper.Map<StudentInput, Student>(student);
+            await _studentManager.AddStudent(std);
+        }
 
-                _repository.Add(std);
-                return Ok("Data Saved");
-            }
-            return BadRequest(ModelState);
+        [HttpPut]
+        public async Task Update(int ID, StudentInput student)
+        {
+            if (student is null)
+                throw new InvalidException("No Data");
+
+            var Old = await _repository.GetByIDAsync(ID);
+
+            if (Old == null)
+                throw new InvalidException("ID Not Found");
+
+            var std = _mapper.Map(student, Old);
+
+            await _studentManager.UpdateStudent(std);
         }
 
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(int ID)
         {
-            _studentManager.Delete(id);
+            var student = _repository.GetByID(ID);
+            if (student == null)
+                throw new InvalidException("ID Not Found");
+
+            _repository.Remove(student);
         }
     }
 }
