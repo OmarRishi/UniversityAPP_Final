@@ -2,15 +2,13 @@
 using DomainServices.Entities;
 using DomainServices.Interface;
 using DomainServices.Manager;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using UniversityAPP.Dto;
-using UniversityAPP.Exeption;
-using UniversityAPP.Mapping;
+using UniversityAPP.Utilities;
 
 namespace UniversityAPP.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
