@@ -3,6 +3,7 @@ using DomainServices;
 using Infrastructure.Utilities;
 using UniversityAPP.Utilities;
 using UniversityAPP.Dto;
+using UniversityAPP;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.DomainConfiguration();
 builder.Services.AddAuthentication(Jwt);
 
 var app = builder.Build();
+app.UseLogMiddleware();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

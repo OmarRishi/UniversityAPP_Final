@@ -43,6 +43,9 @@ namespace UniversityAPP.Utilities
             IMapper mapper = MyMapper.InitializeAutoMapper();
 
             Service.AddSingleton(mapper);
+            //Service.AddSingleton<ILogger<LogMiddleware>, Logger<LogMiddleware>>();
+            Service.AddLogging();
+
         }
         public static void AddAuthentication(this IServiceCollection Service, JwtData jwtData)
         {
