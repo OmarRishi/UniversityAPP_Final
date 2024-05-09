@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UYX00wtAqvOw/1t9m1Fqhu/EhfHgCUFmzldvXSNkAAaTcf8Zp5tAey73z6Ae9DMlg4aSb6xjR61Fhq84bb8vzQ==",
+  "dgSpecHash": "qGJnZ+BcDDiXRpzc2dpXgUMVr1IrTolYCmKcAilh42vpBRv0VwKU3v1wOlP2kx07+LvUg38XeLqFEBH/FEWhcA==",
   "success": true,
   "projectFilePath": "D:\\.NetCore\\UniversityAPP\\UniversityAPP\\UniversityAPP.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "C:\\Users\\omar rishi\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\omar rishi\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\omar rishi\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\omar rishi\\.nuget\\packages\\nlog\\5.3.2\\nlog.5.3.2.nupkg.sha512",
+    "C:\\Users\\omar rishi\\.nuget\\packages\\nlog.extensions.logging\\5.3.11\\nlog.extensions.logging.5.3.11.nupkg.sha512",
     "C:\\Users\\omar rishi\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\omar rishi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\omar rishi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

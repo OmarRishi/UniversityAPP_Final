@@ -3,6 +3,7 @@ using DomainServices;
 using Infrastructure.Utilities;
 using UniversityAPP.Utilities;
 using UniversityAPP.Dto;
+using UniversityAPP;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,8 @@ builder.Services.AddAuthentication(Jwt);
 
 var app = builder.Build();
 
-//app.UseMiddleware<RequestLoggingMiddleware>();
+
+app.UseMiddleware();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -37,6 +39,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<LogMiddleware>();
 
 app.MapControllers();
 

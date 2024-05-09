@@ -30,7 +30,7 @@ namespace UniversityAPP
             catch (Exception ex)
             {
 
-                //_logger.LogError($"Response: {context.Response.StatusCode} Body: {responseBody}");
+                _logger.LogError(message: $"Response: {context.Response.StatusCode} "); //Body: {responseBody}
                 throw;
             }
         }
