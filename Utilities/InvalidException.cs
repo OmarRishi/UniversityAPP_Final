@@ -2,9 +2,19 @@
 {
     public class InvalidException : Exception
     {
-        public InvalidException() { }
-        public InvalidException(string message) : base(message) { }
-        public InvalidException(string message, Exception Inner) : base(message, Inner) { }
+
+        public InvalidException(ILogger logger)
+        {
+
+        }
+        public InvalidException(ILogger logger, string message) : base(message)
+        {
+            logger.LogError(message);
+        }
+        public InvalidException(ILogger logger, string message, Exception Inner) : base(message, Inner)
+        {
+            logger.LogError(message);
+        }
     }
 
 }

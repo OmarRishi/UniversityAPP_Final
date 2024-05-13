@@ -21,7 +21,8 @@ namespace UniversityAPP.Controllers
 
         public StudentController(IStudentRepository repository,
                                  IStudentManager studentManager,
-                                 IMapper mapper)
+                                 IMapper mapper,
+                                 ILogger<StudentController> logger)
         {
             _repository = repository;
             _studentManager = studentManager;
@@ -76,7 +77,7 @@ namespace UniversityAPP.Controllers
         public async Task Update(int ID, StudentInput student)
         {
             if (student is null)
-                throw new InvalidException("No Data");
+                throw new InvalidException(_logger, "No Data");
 
             var Old = await _repository.GetByIDAsync(ID);
 
